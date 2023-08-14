@@ -2,6 +2,7 @@
 function handleSubmit(e) {
     e.preventDefault();
 
+
     const groceryItems = document.querySelectorAll("input[name=grocery-option]:checked");
 
     const groceryItemsArray = Array.from(groceryItems);
@@ -26,13 +27,18 @@ function handleSubmit(e) {
     document.querySelector('form').setAttribute('class', 'hidden');
     // let form = document.querySelector('form');
     // form.remove();
-    
+
+    const resetButton = document.createElement('button');
+    resetButton.setAttribute('type', 'button');
+    resetButton.append('Make a New List');
+    ul.append(resetButton);
+
+    resetButton.addEventListener('click', function() {
+        document.querySelector('form').removeAttribute('class', 'hidden');
+        document.querySelector('ul').remove();
+    });
 
 }
-
-
-
-
 
 function handleEverything() {
     const form = document.querySelector('form');
